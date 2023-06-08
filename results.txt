@@ -1,0 +1,29 @@
+=== Results ===
+
+== Trained model on 124 lines of data
+== Model Info
+ -- model.percent_positive_sentences 0.5806451612903226
+ -- model.percent_negative_sentences 0.41935483870967744
+== Tested model on 497 lines of data
+ -- Accuracy: 0.6036217303822937
+
+== Trained model on 248 lines of data
+== Model Info
+ -- model.percent_positive_sentences 0.5685483870967742
+ -- model.percent_negative_sentences 0.4314516129032258
+== Tested model on 497 lines of data
+ -- Accuracy: 0.6599597585513078
+
+== Trained model on 372 lines of data
+== Model Info
+ -- model.percent_positive_sentences 0.5752688172043011
+ -- model.percent_negative_sentences 0.42473118279569894
+== Tested model on 497 lines of data
+ -- Accuracy: 0.7002012072434608
+
+== Trained model on 496 lines of data
+== Model Info
+ -- model.percent_positive_sentences 0.5120967741935484
+ -- model.percent_negative_sentences 0.4879032258064516
+== Tested model on 497 lines of data
+ -- Accuracy: 0.7565392354124748
