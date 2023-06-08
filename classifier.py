@@ -63,13 +63,13 @@ class BayesClassifier():
             for i, word in enumerate(vocab):
                 if vector[i] == 1: # if the word is in the sentence
                     # calculate the probability of the word being positive or negative
-                    # positive_prob += np.log((self.positive_word_counts.get(word, 0) + 1) / (self.percent_positive_sentences + len(vocab)))
-                    # negative_prob += np.log((self.negative_word_counts.get(word, 0) + 1) / (self.percent_negative_sentences + len(vocab)))
-                    total_positive_words = sum(self.positive_word_counts.values())
-                    total_negative_words = sum(self.negative_word_counts.values())
+                    positive_prob += np.log((self.positive_word_counts.get(word, 0) + 1) / (self.percent_positive_sentences + len(vocab)))
+                    negative_prob += np.log((self.negative_word_counts.get(word, 0) + 1) / (self.percent_negative_sentences + len(vocab)))
+                    # total_positive_words = sum(self.positive_word_counts.values())
+                    # total_negative_words = sum(self.negative_word_counts.values())
 
-                    positive_prob += np.log((self.positive_word_counts.get(word, 0) + 1) / (total_positive_words + len(vocab)))
-                    negative_prob += np.log((self.negative_word_counts.get(word, 0) + 1) / (total_negative_words + len(vocab)))
+                    # positive_prob += np.log((self.positive_word_counts.get(word, 0) + 1) / (total_positive_words + len(vocab)))
+                    # negative_prob += np.log((self.negative_word_counts.get(word, 0) + 1) / (total_negative_words + len(vocab)))
 
             predictions.append(1 if positive_prob > negative_prob else 0)
 

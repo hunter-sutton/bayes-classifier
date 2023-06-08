@@ -223,22 +223,12 @@ def main():
 
     #     for i in range(1, 5):
     #         model.train(vectorized_training_data[0:i * quarter], training_vocab)
-    #         print("== Trained model on", i * quarter, "lines of data")
-
-    #         print("== Model Info")
-    #         print(" -- model.percent_positive_sentences", model.percent_positive_sentences)
-    #         print(" -- model.percent_negative_sentences", model.percent_negative_sentences)
-
     #         predictions = model.classify_text(vectorized_testing_data, training_vocab)
-    #         print("== Tested model on", len(vectorized_testing_data), "lines of data")
-    #         print(" -- Accuracy:", accuracy(predictions, [x[-1] for x in vectorized_testing_data]))
 
-    #         f.write("== Training model on " + str(i * quarter) + " lines of data\n")
-    #         f.write("== Trained model on " + str(i * quarter) + " lines of data\n")
+    #         f.write("\n== Trained model on " + str(i * quarter) + " lines of data\n")
     #         f.write("== Model Info\n")
     #         f.write(" -- model.percent_positive_sentences " + str(model.percent_positive_sentences) + "\n")
     #         f.write(" -- model.percent_negative_sentences " + str(model.percent_negative_sentences) + "\n")
-    #         f.write("== Testing model on " + str(len(vectorized_testing_data)) + " lines of data\n")
     #         f.write("== Tested model on " + str(len(vectorized_testing_data)) + " lines of data\n")
     #         f.write(" -- Accuracy: " + str(accuracy(predictions, [x[-1] for x in vectorized_testing_data])) + "\n")
 
