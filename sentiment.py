@@ -218,33 +218,42 @@ def main():
     # Train the model on the first 1/4 of the vectorized_training_data, then 1/2, then 3/4, then all of it.
     # After each training, test the model on the vectorized_testing_data and print the accuracy
 
-    # with open('results.txt', 'w') as f:
-    #     f.write("=== Results ===\n")
+    with open('results.txt', 'w') as f:
+        f.write("=== Results ===\n")
 
-    #     for i in range(1, 5):
-    #         model.train(vectorized_training_data[0:i * quarter], training_vocab)
-    #         predictions = model.classify_text(vectorized_testing_data, training_vocab)
+        for i in range(1, 5):
 
-    #         f.write("\n== Trained model on " + str(i * quarter) + " lines of data\n")
-    #         f.write("== Model Info\n")
-    #         f.write(" -- model.percent_positive_sentences " + str(model.percent_positive_sentences) + "\n")
-    #         f.write(" -- model.percent_negative_sentences " + str(model.percent_negative_sentences) + "\n")
-    #         f.write("== Tested model on " + str(len(vectorized_testing_data)) + " lines of data\n")
-    #         f.write(" -- Accuracy: " + str(accuracy(predictions, [x[-1] for x in vectorized_testing_data])) + "\n")
+            model.train(vectorized_training_data[0:i * quarter], training_vocab)
+            test_predictions = model.classify_text(vectorized_testing_data, training_vocab)
+            training_predictions = model.classify_text(vectorized_training_data, training_vocab)
+
+            f.write("\n== Trained model on " + str(i * quarter) + " lines of data\n")
+            f.write("== Model Info\n")
+            f.write(" -- model.percent_positive_sentences " + str(model.percent_positive_sentences) + "\n")
+            f.write(" -- model.percent_negative_sentences " + str(model.percent_negative_sentences) + "\n")
+
+            f.write("== Tested model on testSet and " + str(len(vectorized_testing_data)) + " lines of data\n")
+            f.write(" -- Accuracy: " + str(accuracy(test_predictions, [x[-1] for x in vectorized_testing_data])) + "\n")
+            f.write("== Tested model on trainingSet and " + str(len(vectorized_training_data)) + " lines of data\n")
+            f.write(" -- Accuracy: " + str(accuracy(training_predictions, [x[-1] for x in vectorized_training_data])) + "\n")
 
     # Train the model on all of the vectorized_training_data
-    model.train(vectorized_training_data, training_vocab)
-    print("== Trained model on all", len(vectorized_training_data), "lines of data")
+    # model.train(vectorized_training_data, training_vocab)
+    # print("== Trained model on all", len(vectorized_training_data), "lines of data")
 
-    print("== Model Info")
-    print(" -- model.percent_positive_sentences", model.percent_positive_sentences)
-    print(" -- model.percent_negative_sentences", model.percent_negative_sentences)
+    # print("== Model Info")
+    # print(" -- model.percent_positive_sentences", model.percent_positive_sentences)
+    # print(" -- model.percent_negative_sentences", model.percent_negative_sentences)
     # print(" -- model.positive_word_counts", model.positive_word_counts)
     # print(" -- model.negative_word_counts", model.negative_word_counts)
 
-    predictions = model.classify_text(vectorized_testing_data, training_vocab)
-    print("== Tested model on", len(vectorized_testing_data), "lines of data")
-    print(" -- Accuracy:", accuracy(predictions, [x[-1] for x in vectorized_testing_data]))
+    # predictions = model.classify_text(vectorized_testing_data, training_vocab)
+    # print("== Tested model on", len(vectorized_testing_data), "lines of data")
+    # print(" -- Accuracy:", accuracy(predictions, [x[-1] for x in vectorized_testing_data]))
+
+    # predictions = model.classify_text(vectorized_training_data, training_vocab)
+    # print("== Tested model on", len(vectorized_training_data), "lines of data")
+    # print(" -- Accuracy:", accuracy(predictions, [x[-1] for x in vectorized_training_data]))
 
     return 1
 
